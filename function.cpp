@@ -1,12 +1,24 @@
-// function in cpp
+
 #include <iostream>
 using namespace std;
-void greet()
+// void greet()
+// {
+//     cout << "Hello, World!" << endl;
+// }
+// int main()
+// {
+//     greet();
+//     return 0;
+//
+// }
+// sum of two numbers
+int sum(int a, int b)
 {
-    cout << "Hello, World!" << endl;
+    return a + b;
 }
 int main()
 {
-    greet();
-    return 0;
+    int c, d;
+    cin >> c >> d;
+    cout << sum(c, d);
 }
