@@ -3,12 +3,14 @@ using namespace std;
 
 void change(int x)
 {
-    x = 50; // only changes the copy
+    x = 50;
+    // only changes the copy
 }
 
 int main()
 {
     int a = 10;
     change(a);
-    cout << a; // Output: 10
+    cout << a;
+    // Output: 10
 }
