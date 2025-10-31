@@ -7,8 +7,6 @@ private:
 
 public:
     Box(double w) : width(w) {}
-
-    // Declare friend function
     friend void printWidth(Box box);
 };
 
