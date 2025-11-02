@@ -1,16 +1,18 @@
 #include <iostream>
 using namespace std;
-class LinkedList
+
+class Node
 {
 public:
     int data;
-    LinkedList *next;
+    Node *next;
 };
+
 int main()
 {
-    LinkedList *first = new LinkedList();
-    LinkedList *second = new LinkedList();
-    LinkedList *third = new LinkedList();
+    Node *first = new Node();
+    Node *second = new Node();
+    Node *third = new Node();
 
     first->data = 10;
     second->data = 20;
@@ -20,25 +22,28 @@ int main()
     second->next = third;
     third->next = NULL;
 
-    LinkedList *newnode = new LinkedList();
-    newnode->data = 40;
-    newnode->next = NULL;
+    // Create new node to insert at end
+    Node *add = new Node();
+    add->data = 4;
+    add->next = NULL;
 
-    // Move temp to last node
-    LinkedList *temp = first;
+    // Traverse to the end
+    Node *temp = first;
     while (temp->next != NULL)
     {
         temp = temp->next;
     }
 
-    // Link new node at the end
-    temp->next = newnode;
+    // Link last node to new node
+    temp->next = add;
 
-    LinkedList *head = first;
-
-    while (head != NULL)
+    // Display the linked list
+    temp = first;
+    while (temp != NULL)
     {
-        cout << head->data << " ";
-        head = head->next;
+        cout << temp->data << " ";
+        temp = temp->next;
     }
+
+    return 0;
 }

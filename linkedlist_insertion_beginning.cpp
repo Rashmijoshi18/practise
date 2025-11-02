@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
-class LinkedList
+class Node
 {
 public:
     int data;
-    LinkedList *next;
+    Node *next;
 };
 int main()
 {
-    LinkedList *first = new LinkedList();
-    LinkedList *second = new LinkedList();
-    LinkedList *third = new LinkedList();
+    Node *first = new Node();
+    Node *second = new Node();
+    Node *third = new Node();
 
     first->data = 10;
     second->data = 20;
@@ -20,21 +20,16 @@ int main()
     second->next = third;
     third->next = NULL;
 
-    LinkedList *temp = first;
-    LinkedList *newnode = new LinkedList();
-    newnode->data = 4;
-    newnode->next = first;
-    first = newnode;
+    Node *add = new Node();
+    add->data = 4;
+    add->next = first;
+    first = add;
 
-    LinkedList *head = first;
-
-    while (head != NULL)
+    Node *temp = first;
+    while (temp != NULL)
     {
-        cout << head->data << " ";
-        head = head->next;
+        // temp=first->next;
+        cout << temp->data;
+        temp = temp->next;
     }
-
-    // cout<<first->data<<" ";
-    // cout<<first->next->data<<" ";
-    // cout<<first->next->next->data<<" ";
 }
