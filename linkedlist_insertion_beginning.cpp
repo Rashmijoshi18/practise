@@ -1,35 +1,52 @@
 #include <iostream>
 using namespace std;
-class Node
+
+struct Node
 {
-public:
     int data;
     Node *next;
 };
+
 int main()
 {
-    Node *first = new Node();
-    Node *second = new Node();
-    Node *third = new Node();
+    Node *first = NULL;
+    Node *last = NULL;
+    int n;
 
-    first->data = 10;
-    second->data = 20;
-    third->data = 30;
+    cout << "Enter number of nodes: ";
+    cin >> n;
 
-    first->next = second;
-    second->next = third;
-    third->next = NULL;
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++)
+    {
+        Node *newNode = new Node();
+        cin >> newNode->data;
+        newNode->next = NULL;
+
+        if (first == NULL)
+        {
+            first = newNode;
+            last = newNode;
+        }
+        else
+        {
+            last->next = newNode;
+            last = newNode;
+        }
+    }
 
     Node *add = new Node();
-    add->data = 4;
+    cin >> add->data;
     add->next = first;
     first = add;
 
+    cout << "\nLinked list is: ";
     Node *temp = first;
     while (temp != NULL)
     {
-        // temp=first->next;
-        cout << temp->data;
+        cout << temp->data << " ";
         temp = temp->next;
     }
+
+    return 0;
 }

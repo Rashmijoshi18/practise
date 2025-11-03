@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-class Node
+struct Node
 {
 public:
     int data;
@@ -12,33 +12,23 @@ int main()
     Node *second = new Node();
     Node *third = new Node();
 
-    first->data = 10;
-    second->data = 20;
-    third->data = 30;
-
     first->next = second;
     second->next = third;
     third->next = NULL;
 
-    if (first == NULL)
+    first->data = 10;
+    second->data = 20;
+    third->data = 30;
+
+    Node *todelete = first;
+    while (todelete->next->next != NULL)
     {
-        cout << "empty";
+        todelete = todelete->next;
     }
-    else if (first->next == NULL)
-    {
-        delete first;
-        first = NULL;
-    }
-    else
-    {
-        Node *Second = first;
-        while (Second->next->next != NULL)
-        {
-            Second = Second->next;
-        }
-        delete Second->next;
-        Second->next = NULL;
-    }
+
+    delete todelete->next;
+    todelete->next = NULL;
+
     Node *temp = first;
     while (temp != NULL)
     {
