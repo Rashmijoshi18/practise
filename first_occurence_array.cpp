@@ -7,25 +7,25 @@ int main()
     int n = sizeof(arr) / sizeof(arr[0]);
     int key = 4;
 
-    int low = 0, high = n - 1;
+    int start = 0, end = n - 1;
     int result = -1;
 
-    while (low <= high)
+    while (start <= end)
     {
-        int mid = (low + high) / 2;
+        int mid = (start + end) / 2;
 
         if (arr[mid] == key)
         {
             result = mid;
-            high = mid - 1;
+            end = mid - 1;
         }
         else if (arr[mid] < key)
         {
-            low = mid + 1;
+            start = mid + 1;
         }
         else
         {
-            high = mid - 1;
+            end = mid - 1;
         }
     }
 
